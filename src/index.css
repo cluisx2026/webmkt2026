@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  
+  --color-purple-primary: #6B21A8;
+  --color-purple-light: #9333EA;
+  --color-accent-blue: #2563EB;
+  --color-brand-ink: #1E1B2E;
+  --color-brand-muted: #6B7280;
+  --color-brand-border: #EDE9F4;
+  --color-brand-alt: #FAF9FC;
+}
+
+@layer utilities {
+  .bg-gradient-signature {
+    background: linear-gradient(135deg, #6B21A8 0%, #2563EB 100%);
+  }
+  .text-gradient-signature {
+    background: linear-gradient(135deg, #6B21A8 0%, #2563EB 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Sleek Interface design styles */
+  .circuit-motif-bg {
+    position: absolute;
+    top: 50%;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    opacity: 0.12;
+    pointer-events: none;
+    transform: translateY(-50%);
+    z-index: 0;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  color: var(--color-brand-ink);
+  background-color: #FFFFFF;
+}
+
+/* Ensure focus states are distinct for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-purple-light);
+  outline-offset: 4px;
+}
+
+/* Smooth Interactive Elements for Sleek Interface Theme */
+.btn-gradient-sleek {
+  background: linear-gradient(135deg, #6B21A8 0%, #2563EB 100%);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px 0 rgba(107, 33, 168, 0.2);
+}
+
+.btn-gradient-sleek:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px 0 rgba(107, 33, 168, 0.4), 0 0 10px 2px rgba(37, 99, 235, 0.2);
+  filter: brightness(1.05);
+}
+
+.card-hover-sleek {
+  border: 1px solid var(--color-brand-border);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover-sleek:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-purple-light);
+  box-shadow: 0 20px 40px -15px rgba(107, 33, 168, 0.12);
+  background-color: #FFFFFF;
+}
+
+/* Fade-in & Slide-up Scroll Effects (Intersection Observer / CSS Animations) */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
